@@ -1,0 +1,40 @@
+<div class="col-md-12 col-12">
+    <div class="row mt-5" >
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="container">
+                <table>
+                    <thead>
+                        <th>S.NO</th>
+                        <th>NAME</th>
+                        <th>AGE</th>
+                        <th>GENDER</th>
+                        <th>EDUCATION</th>
+                        <th>ELIGIABLE</th>
+                       
+                        <th>EDIT</th>
+                        <th>DELETE</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of stdDetails ; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.age}}</td>
+                            <td>{{data.gender}}</td>
+                            <td>{{data.education}}</td>
+                           
+                            <td> <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="change($event)">
+                                <label class="custom-control-label" for="customSwitch1"></label>
+                              </div></td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+                            <td><i class="fa-solid fa-trash"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12"></div>
+    </div>
+   
+</div>

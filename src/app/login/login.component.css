@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+label{
+    display: block;
+   
+}
+input{
+    border: none;
+    outline: none;
+    padding: 5px;
+    /* background-color: transparent; */
+    background-color: rgb(247, 245, 245);
+    width: 50%;
+    border-radius: 7px;
+}
+input:focus{
+    border-bottom: 1px solid gray;
+    outline: none;  
+}
+.login{
+    margin-top: 40px;
+  
+}
+small{
+    display: block;
+    color: red;
+}
+.formGroup{
+    margin-top: 10px;
+}
+.btn{
+   padding: 5px 17px;
+ 
+}

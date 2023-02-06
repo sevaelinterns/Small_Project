@@ -1,0 +1,163 @@
+<div class="row mt-5">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="container">
+            <form action="" [formGroup]="studentForm">
+                <table style="width: 100%;">
+                    <thead style="margin-left: 10px;">
+                        <th style="margin-left: 10px;">Name:</th>
+                        <th>AGE:</th>
+                        <th>GENDER:</th>
+                        <th>EDUCATION:</th>
+                        <th>ELIGIABLE:</th>
+                    </thead>
+                    <tbody>
+                        <tr style="padding: 10px; background-color: aquamarine;">
+
+                            <td><input type="text" placeholder="Enter Name Here" formControlName="name"></td>
+                            <td><input type="text" placeholder="Enter age Here" formControlName="age"></td>
+                            <td>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label" for="male">
+                                        <input type="radio" class="form-check-input" formControlName="gender" id="male"
+                                            name="gender" value="male" checked>Male
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label" for="female">
+                                        <input type="radio" class="form-check-input" formControlName="gender"
+                                            id="female" name="gender" value="female" checked>Femlae
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label" for="others">
+                                        <input type="radio" class="form-check-input" formControlName="gender"
+                                            id="others" name="gender" value="others" checked>Others
+                                    </label>
+                                </div>
+
+                            </td>
+                            <td>
+                                <select name="education" id="" formControlName="education">
+                                    <option value="10th">10th</option>
+                                    <option value="12th">12th</option>
+                                    <option value="ug">Under Graduate</option>
+                                    <option value="pg">post Graduate</option>
+                                    <option value="diploma">Diploma</option>
+                                    <option value="engineer">Engineer</option>
+                                </select>
+                            </td>
+
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch1"
+                                        (change)="change(data,status,$event)">
+                                    <label class="custom-control-label" for="customSwitch1"></label>
+                                </div>
+                            </td>
+
+
+                        </tr>
+                    </tbody>
+
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<div class="row mt-3">
+    <div class="col-md-1"></div>
+    <div class="col-md-11">
+        <div class="row">
+            <div class="col-md-9"></div>
+            <div class="col-md-3" style="text-align: center;">
+                <div class="btn btn-info" style="padding: 5px 10px; " (click)="submit()">Submit</div>&nbsp;
+                <i class="fa-solid fa-plus" style="font-size: 25px;" data-toggle="modal" data-target="#myModal"></i>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- another table -->
+<div class="row mt-4">
+    <div class="container" style="margin: auto;">
+        <table style="width: 100%;">
+            <thead>
+                <th>S.NO</th>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>GENDER</th>
+                <th>EDUCATION</th>
+                <th>ELIGIABLE</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of stdArrays ; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.age}}</td>
+                    <td>{{data.gender}}</td>
+                    <td>{{data.education}}</td>
+                    <td>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1{{i}}">
+                            <label class="custom-control-label" for="customSwitch1"></label>
+                        </div>
+                    </td>
+                    <td><i id="{{i}}" class="fa-solid fa-pen-to-square"></i></td>
+                    <td><i id="{{i}}" class="fa-solid fa-trash"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- <img src="../../assets/images/delete.svg" alt=""> -->
+<!-- modal -->
+<!-- The Modal -->
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content" style="margin-left: 10%; width: 90%; ">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+               <ng-container [formGroup]="studentForm">
+                <div class="formGroup">
+                    <label for="name">Name:</label>
+                    <input type="text" placeholder="Enter Name" class="formcontrol" formControlName="name">
+                </div>
+                <div class="formGroup">
+                    <label for="age">Age:</label>
+                    <input type="text" placeholder="Enter Age" class="formcontrol" formControlName="age">
+                </div>
+                <div class="formGroup">
+                    <label for="gender">Gender:</label>
+                    <input type="text" placeholder="Enter Gender" class="formcontrol" formControlName="gender">
+                </div>
+                <div class="formGroup">
+                    <label for="name">Name:</label>
+                    <select name="" id="">
+                        <option value="10th">10th</option>
+                        <option value="12th">10th</option>
+                        <option value="UG">Under Graduate</option>
+                        <option value="PG">Post Graduate</option>
+                        <option value="Diploma">Dimploma</option>
+                        <option value="Engineer">Engineer</option>
+                    </select>
+                </div>
+               </ng-container>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Submit</button>
+                <i class="fa-solid fa-plus" style="font-size: 25px;"></i>
+            </div>
