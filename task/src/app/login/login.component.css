@@ -1,0 +1,22 @@
+p{
+    margin-top: 10px;
+}
+div {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.nav{
+    margin-left: 33%;
+    /* display:block; */
+}
+button{
+    
+    margin-left: 45%;
+}
+.nav-item .nav-link {
+    width: 150px;
+    
+}
+ul li{
+    text-align: center;
+}
